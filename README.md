@@ -61,7 +61,8 @@ A mother from a lower income family needs to buy groceries for her children, but
 Scenario 2: donor 
 	Someone wants to give back to their community by donating to a food bank, so they login to our application.  They login as a donor, where they can browse individual people’s grocery wishlists. Once they viewed as many wish lists as they wanted, they can click the select button and are responsible for donating the items from that order. After they bring the items to that food bank location, a notification gets sent to the receiver of the items that their order is ready for pickup. .
 
-
+database:  psql -h dpg-cnjoa921hbls73dqtrt0-a.oregon-postgres.render.com -U group_project_db_user -d group_project_db
+password: DmtRqJ1aUB2ImyJAM3Umnn6KnNwBaQ1q
 Be honest, is the amount of work required in this proposal enough for five group members
 Yes, there is enough work for all of us.  
 
