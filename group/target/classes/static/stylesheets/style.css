@@ -25,6 +25,11 @@
     padding: 15px;
 }
 
+.nav-right p, .nav-right a{
+    display: inline;
+    margin: 10px;
+}
+
 a {
     color: white;
     text-decoration: none; 
