@@ -1,23 +1,37 @@
-
-
-nav {
-    background-color: #5a6bcb; 
-    padding: 10px; 
-}
-
-ul {
-    list-style-type: none; 
-    margin: 0;
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; 
     padding: 0; 
 }
 
-li {
-    display: inline; 
-    margin-right: 20px; 
+.main-header{
+    background-color: #6B2470;
+    color: white; 
+    padding: 20px; 
 }
 
+.nav-style{
+    display: flex;
+    justify-content: space-between;
+    color: rgb(255, 255, 255);
+    background-color: #F4736E; 
+    padding: 15px; 
+    font-size: large;
+}
+
+.nav-style a:hover {
+    background-color: whitesmoke;
+    color: black;
+    padding: 15px;
+}
+
+.nav-right p, .nav-right a{
+    display: inline;
+    margin: 10px;
+}
 
 a {
     color: white;
-    text-decoration: none; /
+    text-decoration: none; 
+    margin-right: 15px;
 }

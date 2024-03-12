@@ -90,4 +90,9 @@ public class UsersController {
     public String home() {
         return "users/home"; 
     }
+
+    @GetMapping("/signup")
+    public String signup() {
+        return "users/signup"; 
+    }
 }
