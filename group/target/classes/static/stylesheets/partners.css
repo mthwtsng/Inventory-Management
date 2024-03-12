@@ -8,7 +8,7 @@ body {
     overflow: visible;
     background: white;
     margin: 0;
-    padding-top: 160px;
+    padding-top:0;
 }
 
 .logo {
@@ -177,4 +177,4 @@ html {
         width: 100%;
         display: block;
     }
-}}
+}
