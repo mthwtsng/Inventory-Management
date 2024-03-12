@@ -54,7 +54,14 @@ public class UsersController {
             return "users/protected";
         }
     }
-
+    @GetMapping("/about")
+    public String about(){
+        return "users/about";
+    }
+    @GetMapping("/partners")
+    public String partners(){
+        return "users/partners";
+    }
     @PostMapping("/login")
     public String login(@RequestParam Map<String,String> formData, Model model, HttpServletRequest request, HttpSession session){
         // processing login
