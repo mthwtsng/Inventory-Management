@@ -60,6 +60,7 @@ public class UsersController {
     }
     @GetMapping("/partners")
     public String partners(){
+
         return "users/partners";
     }
     @PostMapping("/login")

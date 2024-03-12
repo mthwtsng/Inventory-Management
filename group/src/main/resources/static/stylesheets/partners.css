@@ -11,24 +11,31 @@ body {
     padding-top: 160px;
 }
 
-html {
-    box-sizing: border-box;
-}
-
 .logo {
     text-align: center;
-    position: absolute;
+    position: absolute; /* Use fixed positioning to keep the logo at the top */
     top: 0;
+    left: 0;
     width: 100%;
+    background-color: white; /* Add background color if needed */
 }
 
 .logo .Childhelp-logo {
     background-image: url('logo.jpg');
-
-    height: 100%;
-    position: absolute;
-    top: 0;
+    background-size: contain; /* Adjust as needed */
+    background-position: center;
+    height: 100px; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
+    transform: translateX(-50%); /* Center the logo horizontally */
+    left: 50%;
 }
+
+
+html {
+    box-sizing: border-box;
+}
+
+
 
 .partners {
     position: relative;
@@ -37,15 +44,38 @@ html {
     overflow: hidden;
 }
 
+
 .partners .partner-img {
-    background-image: url('team.jpg');
+    background-image: url('team_img.jpg');
     background-size: cover;
     background-position: center;
     height: 100%;
     position: absolute;
     top: 0;
 }
+.overlay-text,
+.overlay-text2 {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+}
 
+.overlay-text {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: "Plus Jakarta Sans";
+    padding-bottom: 100px;
+}
+
+.overlay-text2 {
+    font-size:30px;
+    font-weight: bold;
+    font-family:"Plus Jakarta Sans";
+}
 .partners::after {
     content: "";
     position: absolute;
@@ -53,7 +83,6 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(144, 106, 204, 0.5);
 }
 
 .display-partners {
@@ -76,12 +105,13 @@ html {
 }
 
 .row {
-    display: flex; /* Use flexbox */
+    display: flex;
 }
 
 .column {
     flex: 1;
     height: 100vh;
+    width: 33.3%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -90,10 +120,22 @@ html {
     padding: 15px;
     box-sizing: border-box;
 }
+.column h2{
+    font-size: x-large;
+    font-weight:bold;
+}
+.column h3{
+    font-size: x-large;
+    font-weight:bold;
 
+}
+.column h4{
+    font-size:x-large;
+    font-weight:bold;
+}
 .column img {
     width: 100%;
-    height: 300px;
+    height: 350px;
     object-fit: cover;
 }
 
@@ -135,4 +177,4 @@ html {
         width: 100%;
         display: block;
     }
-}
+}}
