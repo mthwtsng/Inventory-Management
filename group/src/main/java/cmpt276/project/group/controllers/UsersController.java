@@ -119,7 +119,7 @@ public class UsersController {
     usersRepository.save(user);
 
     response.setStatus(HttpServletResponse.SC_CREATED);
-    return "redirect:/users/protected";
+    return "users/protected";
 }
 
 }
