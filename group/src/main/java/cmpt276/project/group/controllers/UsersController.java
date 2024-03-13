@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 
 
 import jakarta.servlet.http.HttpServletRequest;
-
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
@@ -19,6 +19,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -66,9 +68,9 @@ public class UsersController {
     @PostMapping("/login")
     public String login(@RequestParam Map<String,String> formData, Model model, HttpServletRequest request, HttpSession session){
         // processing login
-        String name = formData.get("name");
+        String username = formData.get("username");
         String pwd = formData.get("password");
-        List<Users> userlist = usersRepository.findByNameAndPassword(name, pwd);
+        List<Users> userlist = usersRepository.findByUsernameAndPassword(username, pwd);
         if (userlist.isEmpty()){
             return "users/login";
         }
@@ -96,4 +98,28 @@ public class UsersController {
     public String signup() {
         return "users/signup"; 
     }
+
+
+    @PostMapping("/signup")
+    public String signup(@RequestParam Map<String, String> newUser, Model model, HttpServletResponse response) {
+        String username = newUser.get("username");
+        String password = newUser.get("password");
+
+        if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
+            return "users/signup"; 
+        }
+
+        if (usersRepository.existsByUsername(username)) {
+            return "users/signup"; 
+        }
+
+    Users user = new Users();
+    user.setUsername(username);
+    user.setPassword(password);
+    usersRepository.save(user);
+
+    response.setStatus(HttpServletResponse.SC_CREATED);
+    return "redirect:/users/protected";
+}
+
 }
