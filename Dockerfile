@@ -3,7 +3,7 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 
-FROM openjdk:21-jdk-slim
+FROM openjdk:17-jdk-slim
 COPY --from=build /target/group-0.0.1-SNAPSHOT.jar group.jar
-EXPOSE 8080
+EXPOSE 9091
 ENTRYPOINT ["java","-jar","group.jar"]
