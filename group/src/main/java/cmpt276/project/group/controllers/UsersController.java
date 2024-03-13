@@ -62,7 +62,6 @@ public class UsersController {
     }
     @GetMapping("/partners")
     public String partners(){
-
         return "users/partners";
     }
     @PostMapping("/login")
@@ -72,6 +71,7 @@ public class UsersController {
         String pwd = formData.get("password");
         List<Users> userlist = usersRepository.findByUsernameAndPassword(username, pwd);
         if (userlist.isEmpty()){
+            model.addAttribute("error","Incorrect username/password");
             return "users/login";
         }
         else {
