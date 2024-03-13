@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build group/target/-0.0.1-SNAPSHOT.jar ass2.jar
+COPY --from=build /target/-0.0.1-SNAPSHOT.jar group.jar
 EXPOSE 9091
 ENTRYPOINT ["java", "-jar" , "group.jar"]
