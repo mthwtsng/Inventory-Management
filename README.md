@@ -5,10 +5,8 @@ Ideas:
 App that locates disabled washrooms
 App to pay for wishlists for the homeless
 
-List of food banks: 
-Greater vancouver food bank
-Sources food bank 
-Surrey food bank 
+Charity: 
+ChildHelp 
 
 App for greater van food bank ideas: 
 2 options for login: donator or receiver 
@@ -29,41 +27,41 @@ Decide what roles each person will have
 More of how we will make the functions/code
 
 
+
+
 Proposal questions to answer: 
 Do we have a clear understanding of the problem?
 What is the name of your web application?
-Yumyum 
-groceryLISTner
+Toy inventory (Childhelp)
 
 
 How is this problem solved currently (if at all)?
-The Surrey food bank has a link to an amazon wishlist where donors can enter what they want accessible at the food bank. However, they don’t have an option for people to request items.  The donor chooses what items they want to donate.  
-
+The problem our client wants us to solve is by creating an inventory to organize and categorize the clothing and toy donations Childhelp recieves. There are many types of inventories for websites and applications, which typically require a database for data storage such as SQL, Postgre SQL,etc. Our group will be using Postgre SQL to store and organize donations. 
 
 How will this project make life better? Is it educational or just for entertainment?
-Our project is a personalized approach to food banks, allowing users to request their own necessities.  By allowing them to request the items they need, it provides a convenient way for food bank users to get a chance to have a say in selecting the specific items they need, which is something the current food banks don’t have. 
+Our project will be used to improve organization and efficency for the Childhelp organization, since they currently do not have a database or a way of categorizing clothing and toy donations at the moment. This database will categorize toy donations based on genre(ex stuffed animals, action figures, boardgames,etc), recommended age range, quantity, and gender. The clothing donations will be sorted based on gender, age range, and type of clothing(for example shirts, jackets, shoes,etc). There will also be an educational component as well for regular users ( i.e anyone with the link) to view a graphical/chart display of the current inventory and which items are most needed.
 
 
 Who is the target audience? Who will use your app or play your game?
-People at an economic disadvantage or lower income. The users would be those that use food banks, and those who would like to help out the community who would like to donate food items. 
-
+This web application is designed to be an extension of the existing website for Childhelp, so anyone who is interested in learning more about the company and it's purpose will be able to use the app. The second type of user will be the current employees/volunteers who work in the toy/clothing donation department and will be able to update the inventory. Such users will be able to add or remove items from the inventory when needed.
 
 What is the scope of your project?
 Does this project have many individual features or one main feature (a possibility with many subproblems)? These are the ‘epics’ of your project.
-There are two options for signing up and creating an account would be for donors and for the receivers. One option allows users to request necessary items in an approach similar to the Amazon storefront wish list. The second option would allow users to donate money or request to donate that specific item off of the receiver’s wish list.
+There are two options for viewing the webpage: regular user and registered user. The regular users will only be allowed to view the webpage but will not have access to the database or inventory. They will be able to view the current inventory stock and see the current quantities of the items stored. The registered users will have access to search, add and remove items based on the category. We may also consider adding an admin user who will authorize new users to sign up and be able to access the database. Aside from the database, the website will feature various subcategories such as an about page, a partners and contributors page, stories of those affected by Childhelp, and more which will be further reviewed with the client.
 
 
 What are some sample stories/scenarios? For example, as a regular user of your site, what types of things can I do?  These are the ‘stories’ of your project.
-Scenario 1: receiver
-A mother from a lower income family needs to buy groceries for her children, but she can not afford it.  So she goes to our website and selects the register option to create her account so she can create a new wishlist of groceries to feed her family. There is a menu to select which location she would like to pick items up from. Afterwards, she is presented with some categories of items (ex canned goods, breads, cereals,etc) where she can select the items that she needs, which get added to her wish list. There is also a search bar available for easier search. She gets a limit of 15 items per list. The items she selects are added to a checklist and she can wait until she receives a notification that her items are ready for pick up. 
+Scenario 1: Admin
+One of the charity workers opens the website. Since he has an account, he selects the login option. He types in a the correct user name and password so he gets redirected to the main page. The charity recently received several toy donations so he selected the add to inventory option on the screen. From there he can enter the toy names, quantity and age range . It then gets added to the data base.
 
 
-Scenario 2: donor 
-	Someone wants to give back to their community by donating to a food bank, so they login to our application.  They login as a donor, where they can browse individual people’s grocery wishlists. Once they viewed as many wish lists as they wanted, they can click the select button and are responsible for donating the items from that order. After they bring the items to that food bank location, a notification gets sent to the receiver of the items that their order is ready for pickup. .
+Scenario 2:  
+	Some of the toys were recently donated. A charity worker can login to their account using the login page. To delete some of the items from the inventory, they can click the view inventory button and they are presented with a chart or table showing all the current items in stock. Each item has a quantity displayed as well as a plus and minus button. The user can look for which items were deleted and hit the minus button that many times / or we can do a change quantity button where the user manually enters the new quantity. The same applies to the add button, if they want to add more of the same toy. 
 
 
 Be honest, is the amount of work required in this proposal enough for five group members
 Yes, there is enough work for all of us.  
+
 
 database:  psql -h dpg-cnjoa921hbls73dqtrt0-a.oregon-postgres.render.com -U group_project_db_user -d group_project_db
 
