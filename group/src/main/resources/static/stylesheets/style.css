@@ -1,5 +1,5 @@
 * {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Open Sans';
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
@@ -35,6 +35,7 @@
 .nav-right p,
 .nav-right a {
     margin-left: 10px;
+    color:white;
 }
 
 .nav-right p {
