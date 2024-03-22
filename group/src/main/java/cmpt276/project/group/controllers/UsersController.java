@@ -110,6 +110,8 @@ public class UsersController {
         }
 
         if (usersRepository.existsByUsername(username)) {
+            model.addAttribute("error","Username already taken");
+
             return "users/signup"; 
         }
 
