@@ -5,8 +5,10 @@ import cmpt276.project.group.models.CategoryRepository;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.data.domain.Sort;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,7 +48,7 @@ public class CategoryController {
             categoryRepository.save(new Category(newName, newAgeRange, newQuantity));
 
             response.setStatus(201);
-            return "redirect:/login"; // I will make this redirect to the display page afterwards
+            return "redirect:/showAll"; // I will make this redirect to the display page afterwards
         }
     }
     @GetMapping("/addForm")
@@ -55,15 +57,15 @@ public class CategoryController {
     }
     @GetMapping("/showAll")
     public String getCategories(Model model) {
-        List<Category> categories = categoryRepository.findAll(); // Fetch categories from repository
+        List<Category> categories = categoryRepository.findAll(Sort.by(Sort.Direction.ASC, "id")); // Fetch categories from repository
         model.addAttribute("categories", categories); // Add categories to model
         return "users/showAll"; // Return the name of the Thymeleaf template
     }
 
-   // @GetMapping("/showAll")
-   // public String showAll() {
-     //   return "users/showAll";
-   // }
+    // @GetMapping("/showAll")
+    // public String showAll() {
+    //   return "users/showAll";
+    // }
 
     @PostMapping("/showAll")
     public String getAllCategories(Model model) {
@@ -101,4 +103,36 @@ public class CategoryController {
 
         }
     }
+    @PostMapping("/update")
+    public String updateQuantity(@RequestParam("id") int categoryId, @RequestParam("quantity") int newQuantity) {
+        // Find the category by ID
+        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
+
+
+        if (optionalCategory.isPresent()) {
+            Category category = optionalCategory.get();
+            category.setQuantity(newQuantity); // Update the quantity
+            categoryRepository.save(category); // Save the updated category object
+        }
+
+
+        // Redirect back to the showAll page
+        return "redirect:/showAll";
+    }
+    @PostMapping("/remove")
+    public String deleteItem(@RequestParam("id") int categoryId) {
+        // Find the category by ID
+        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
+
+
+        if (optionalCategory.isPresent()) {
+            Category category = optionalCategory.get();
+            categoryRepository.deleteById(category.getId());
+        }
+
+
+        // Redirect back to the showAll page
+        return "redirect:/showAll";
+    }
 }
+
