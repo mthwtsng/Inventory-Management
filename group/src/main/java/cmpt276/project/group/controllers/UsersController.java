@@ -94,6 +94,16 @@ public class UsersController {
         return "users/home"; 
     }
 
+    @GetMapping("/deleteform")
+    public String deleteform(){
+        return "users/delete";
+    }
+
+    @GetMapping("/showall")
+    public String showall() {
+        return "users/showAll";
+    }
+    
     @GetMapping("/signup")
     public String signup() {
         return "users/signup"; 
