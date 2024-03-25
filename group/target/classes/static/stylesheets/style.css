@@ -1,5 +1,5 @@
 * {
-    font-family: 'Open Sans';
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
@@ -52,4 +52,42 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%; 
+}
+
+.centered{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.choose-category{
+    font-size: x-large;
+    width: 300px;
+    height: 100px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: #f78988;
+    transition: 0.3s;
+    border: none;
+}
+
+.choose-category:hover{
+    background-color: #934d98;
+    color: white;
+    cursor: pointer;
+}
+
+.viewinventoryh1{
+    text-align: center;
+    font-size: xx-large;
+    margin-bottom: 15px;
+}
+
+.view-text{
+    text-align: center;
+    font-size: larger;
+    margin:20px;
 }
