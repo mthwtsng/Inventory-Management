@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('/categories')
+    fetch('/categoryData') // Fetch data from the endpoint
         .then(response => response.json())
         .then(categories => {
             const categoryNames = categories.map(category => category.name);
