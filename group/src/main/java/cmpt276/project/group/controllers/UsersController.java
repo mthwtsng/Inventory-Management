@@ -99,6 +99,15 @@ public class UsersController {
         return "users/signup"; 
     }
 
+    @GetMapping("/addform")
+    public String addform() {
+        return "users/addForm"; 
+    }
+
+    @GetMapping("/protected")
+    public String loggedin() {
+        return "users/protected"; 
+    }
 
     @PostMapping("/signup")
     public String signup(@RequestParam Map<String, String> newUser, Model model, HttpServletResponse response) {
