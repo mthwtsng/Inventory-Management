@@ -16,8 +16,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class CategoryController {
 
     @Autowired
@@ -133,6 +134,11 @@ public class CategoryController {
 
         // Redirect back to the showAll page
         return "redirect:/showAll";
+    }
+
+    @GetMapping("/categories")
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
     }
 }
 
