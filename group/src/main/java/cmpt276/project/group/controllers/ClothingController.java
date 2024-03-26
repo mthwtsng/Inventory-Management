@@ -1,7 +1,7 @@
 package cmpt276.project.group.controllers;
 
-import cmpt276.project.group.models.Category;
-import cmpt276.project.group.models.CategoryRepository;
+import cmpt276.project.group.models.Clothing;
+import cmpt276.project.group.models.ClothingRepository;
 
 import java.util.List;
 import java.util.Map;
@@ -9,7 +9,7 @@ import java.util.Optional;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.data.domain.Sort;
-
+import org.springframework.http.ResponseEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,26 +20,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class CategoryController {
+public class ClothingController {
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private ClothingRepository clothingRepository;
 
-    public CategoryController() {
+    public ClothingController() {
         // Constructor code
     }
 
     @PostMapping("/users/addForm")
-    public String addCategory(@RequestParam Map<String, String> newCategory, Model model, HttpServletResponse response) {
-        System.out.println("Add toy category");
-        String newName = newCategory.get("name");
-        String newAgeRange = newCategory.get("ageRange");
-        int newQuantity = Integer.parseInt(newCategory.get("quantity"));
+    public String addClothingCategory(@RequestParam Map<String, String> newClothingCategory, Model model, HttpServletResponse response) {
+        System.out.println("Add clothing category");
+        String newType = newClothingCategory.get("type");
+        String newGender = newClothingCategory.get("gender");
+        String newAgeRange = newClothingCategory.get("ageRange");
+        int newQuantity = Integer.parseInt(newClothingCategory.get("quantity"));
         // Find the category by the given parameters
-        List<Category> categoryList = categoryRepository.findByNameAndAgeRangeAndQuantity(newName, newAgeRange, newQuantity);
+        List<Clothing> clothingList = clothingRepository.findByTypeAndGenderAndAgeRangeAndQuantity(newType,newGender, newAgeRange, newQuantity);
 
         // Check if the category exists
-        if (!categoryList.isEmpty()) {
+        if (!clothingList.isEmpty()) {
             model.addAttribute("error","Category already exists");
             response.setStatus(404); // Not Found
 
@@ -47,7 +48,7 @@ public class CategoryController {
 
 
         } else {
-            categoryRepository.save(new Category(newName, newAgeRange, newQuantity));
+            clothingg Repository.save(new Category(newName, newAgeRange, newQuantity));
 
             response.setStatus(201);
             return "redirect:/showAll"; // I will make this redirect to the display page afterwards
@@ -66,6 +67,16 @@ public class CategoryController {
         return "users/showAll"; // Return the name of the Thymeleaf template
     }
 
+
+   /* @GetMapping("/showAll")
+    @ResponseBody // This annotation tells Spring MVC to serialize the return value directly to the response body
+    public ResponseEntity<List<Category>> getCategories() {
+        List<Category> categories = categoryRepository.findAll(Sort.by(Sort.Direction.ASC, "id")); // Fetch categories from repository
+
+        // Return the list of categories with a 200 OK status
+        return ResponseEntity.ok().body(categories);
+    }
+    */
 
     // @GetMapping("/showAll")
     // public String showAll() {
@@ -139,14 +150,5 @@ public class CategoryController {
         // Redirect back to the showAll page
         return "redirect:/showAll";
     }
-
-
-
-    @GetMapping("/categoryData")
-    @ResponseBody 
-    public List<Category> getCategoryData() {
-        return categoryRepository.findAll();
-    }
-
 }
 

@@ -70,15 +70,13 @@ public class UsersController {
         String username = formData.get("username");
         String pwd = formData.get("password");
         List<Users> userlist = usersRepository.findByUsernameAndPassword(username, pwd);
-        if (userlist.isEmpty()){
-            model.addAttribute("error","Incorrect username/password");
+        if (userlist.isEmpty()) {
+            model.addAttribute("error", "Incorrect username/password");
             return "users/login";
-        }
-        else {
-            // success
-            Users user = userlist.get(0);
+        }else {
+            Users user = userlist.get(0); // Retrieve the first user from the list
             request.getSession().setAttribute("session_user", user);
-            model.addAttribute("user", user);
+            model.addAttribute("user", user); // Add the single user object to the model
             return "users/protected";
         }
     }
@@ -121,6 +119,7 @@ public class UsersController {
 
     @PostMapping("/signup")
     public String signup(@RequestParam Map<String, String> newUser, Model model, HttpServletResponse response) {
+        String name =newUser.get("name");
         String username = newUser.get("username");
         String password = newUser.get("password");
 
@@ -135,11 +134,12 @@ public class UsersController {
         }
 
     Users user = new Users();
+        user.setName(name);
     user.setUsername(username);
     user.setPassword(password);
     usersRepository.save(user);
 
-    response.setStatus(HttpServletResponse.SC_CREATED);
+   // response.setStatus(HttpServletResponse.SC_CREATED);
     return "users/protected";
 }
 
