@@ -112,6 +112,11 @@ public class UsersController {
         return "users/addForm"; 
     }
 
+    @GetMapping("/settings")
+    public String settings() {
+        return "users/settings";
+    }
+
     @GetMapping("/protected")
     public String loggedin() {
         return "users/protected"; 
