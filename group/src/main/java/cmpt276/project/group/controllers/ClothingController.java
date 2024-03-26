@@ -1,5 +1,6 @@
 package cmpt276.project.group.controllers;
 
+import cmpt276.project.group.models.Category;
 import cmpt276.project.group.models.Clothing;
 import cmpt276.project.group.models.ClothingRepository;
 
@@ -151,6 +152,12 @@ public class ClothingController {
 
         // Redirect back to the showAll page
         return "redirect:/showAllClothes";
+    }
+
+    @GetMapping("/clothingData")
+    @ResponseBody 
+    public List<Clothing> getCategoryData() {
+        return clothingRepository.findAll();
     }
 }
 
