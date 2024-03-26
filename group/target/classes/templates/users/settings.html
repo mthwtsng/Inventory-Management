@@ -74,12 +74,15 @@
                     <form action="/users/changepass" method="post">
         
                         <div class="mb-3">
-                            <input type="text" id="oldpass" name="oldpass" class="form-control form-control-lg"
+                            <input type="password" id="oldpass" name="oldpass" class="form-control form-control-lg"
                                    placeholder="Old password" required>
                         </div>
                         <div class="mb-3">
-                            <input type="text" id="newpass" name="newpass" class="form-control form-control-lg"
+                            <input type="password" id="newpass" name="newpass" class="form-control form-control-lg"
                                    placeholder="New password" required>
+                        </div>
+                        <div>
+                            <input type="checkbox" onclick="showpass()"> Show Password
                         </div>
                         <div class="d-grid gap-2">
                             <input class="btn btn-primary" type="submit" value="Change to new password"></input>
