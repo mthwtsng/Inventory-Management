@@ -20,3 +20,7 @@ function showpass(){
         newpass.type = "password";
       }
 }
+
+function logout() {
+    window.location.href = "/logout";
+}
