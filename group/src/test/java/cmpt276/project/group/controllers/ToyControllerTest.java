@@ -1,14 +1,12 @@
-
-
 package cmpt276.project.group.controllers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import cmpt276.project.group.models.CategoryRepository;
 
-import cmpt276.project.group.models.Category;
-import cmpt276.project.group.controllers.CategoryController;
-import org.junit.jupiter.api.BeforeAll;
+import cmpt276.project.group.models.ToyRepository;
+import cmpt276.project.group.controllers.ToyController;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,34 +18,34 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CategoriesControllerTest {
+public class ToyControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
-    private CategoryController categoryController;
+    private ToyController toyController;
 
-    @BeforeAll
-    static void setup() {
+    @BeforeEach
+    void setup() {
         System.out.println("Setting up");
     }
 
     @Test
-    void testContextLoads() throws Exception {
-        assertNotNull(categoryController);
+    void testContextLoads() {
+        assertNotNull(toyController);
     }
 
     @Test
-    void testGetAllCategories() throws Exception{
-        this.mockMvc.perform(get("/showAll"))
+    void testGetAllToys() throws Exception {
+        this.mockMvc.perform(get("/showAllToys"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
                 .andExpect(jsonPath("$", hasSize(4)))
                 .andExpect(jsonPath("$[0].name", is("Books")))
                 .andExpect(jsonPath("$[0].ageRange", is("9-13")))
                 .andExpect(jsonPath("$[0].quantity", is(7)))
-                .andExpect(jsonPath("$[1].name", is("video games")))
+                .andExpect(jsonPath("$[1].name", is("Video games")))
                 .andExpect(jsonPath("$[1].ageRange", is("9-12")))
                 .andExpect(jsonPath("$[1].quantity", is(4)))
                 .andExpect(jsonPath("$[2].name", is("Doll houses")))

@@ -40,7 +40,7 @@
     <section class="centered">
         <h1 class="viewinventoryh1">View Inventory</h1>
         <p class="view-text">Please choose which type of inventory list you would like to view: </p>
-        <button class="choose-category" onclick="redirectToShowAll()">
+        <button class="choose-category" onclick="redirectToShowAllToys()">
             Toys
         </button>
         <button class="choose-category"onclick="redirectToShowAllClothes()">
@@ -92,8 +92,8 @@
         function redirectToAddForm(){
             window.location.href="/addForm";
         }
-        function redirectToShowAll(){
-            window.location.href="/showAll";
+        function redirectToShowAllToys(){
+            window.location.href="/showAllToys";
         }
         function redirectToShowAllClothes(){
             window.location.href="/showAllClothes";

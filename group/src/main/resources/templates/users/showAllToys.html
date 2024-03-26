@@ -29,7 +29,7 @@
         </section>
     </nav>
 
-    <button class="addbutton" onclick="redirectToAddForm()">Add new category to toy chart</button>
+    <button class="addbutton" onclick="redirectToToyAddForm()">Add new category to toy chart</button>
 <main class="container-fluid">
 
     <!-- Filter dropdown -->
@@ -54,34 +54,32 @@
             <th>Quantity</th>
         </tr>
         </thead>
-        <tbody id="categoryTableBody">
-        <tr th:each="category : ${categories}" class="category">
-            <td>
-                <span th:text="${category.name}"></span>
-                <form action="/remove" method="post" style="display: inline;">
-                    <input type="hidden" name="id" th:value="${category.id}" />
-                    <button type="submit">Remove</button>
-                </form>
-            </td>
+        <tbody id="toyTableBody">
+            <tr th:each="toy : ${toys}" class="toy">
+                <td>
+                    <span th:text="${toy.name}"></span>
+                    <form action="/remove" method="post" style="display: inline;">
+                        <input type="hidden" name="id" th:value="${toy.id}" />
+                        <button type="submit">Remove</button>
+                    </form>
+                </td>
 
-            <td th:text="${category.ageRange}"></td>
-            <td>
-                <form action="/update" method="post">
-                    <input type="hidden" name="id" th:value="${category.id}" />
-                    <input type="number" name="quantity" class="form-control" th:value="${category.quantity}" />
-                    <button type="submit">Update</button>
-                </form>
-            </td>
-
-
-        </tr>
+                <td th:text="${toy.ageRange}"></td>
+                <td>
+                    <form action="/update" method="post">
+                        <input type="hidden" name="id" th:value="${toy.id}" />
+                        <input type="number" name="quantity" class="form-control" th:value="${toy.quantity}" />
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
         </tbody>
     </table>
 </main>
 
 <script>
-    function redirectToAddForm() {
-        window.location.href = "/addForm";
+    function redirectToToyAddForm() {
+        window.location.href = "/toyAddForm";
     }
 
     function applyFilter() {
@@ -93,13 +91,13 @@
             }
         });
 
-        var categories = document.getElementsByClassName("category");
-        for (var i = 0; i < categories.length; i++) {
-            var categoryAgeRange = categories[i].getElementsByTagName("td")[1].innerText;
-            if (selectedFilters.length === 0 || selectedFilters.includes(categoryAgeRange)) {
-                categories[i].style.display = "table-row";
+        var toys = document.getElementsByClassName("toy");
+        for (var i = 0; i < toys.length; i++) {
+            var toysAgeRange = toys[i].getElementsByTagName("td")[1].innerText;
+            if (selectedFilters.length === 0 || selectedFilters.includes(toysAgeRange)) {
+                toys[i].style.display = "table-row";
             } else {
-                categories[i].style.display = "none";
+                toys[i].style.display = "none";
             }
         }
     }
