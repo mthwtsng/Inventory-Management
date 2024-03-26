@@ -36,7 +36,7 @@
         <button class="choose-category" onclick="redirectToShowAll()">
             Toys
         </button>
-        <button class="choose-category">
+        <button class="choose-category"onclick="redirectToShowAllClothes()">
             Clothing 
         </button>
    </section>
@@ -86,9 +86,11 @@
             window.location.href="/addForm";
         }
         function redirectToShowAll(){
-            window.location.href="./showall";
+            window.location.href="/showAll";
         }
-
+        function redirectToShowAllClothes(){
+            window.location.href="/showAllClothes"
+        }
     </script>
 </body>
 </html>

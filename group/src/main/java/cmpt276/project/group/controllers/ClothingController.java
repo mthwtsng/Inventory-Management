@@ -29,7 +29,7 @@ public class ClothingController {
         // Constructor code
     }
 
-    @PostMapping("/users/addForm")
+    @PostMapping("/users/addForm2")
     public String addClothingCategory(@RequestParam Map<String, String> newClothingCategory, Model model, HttpServletResponse response) {
         System.out.println("Add clothing category");
         String newType = newClothingCategory.get("type");
@@ -41,30 +41,30 @@ public class ClothingController {
 
         // Check if the category exists
         if (!clothingList.isEmpty()) {
-            model.addAttribute("error","Category already exists");
+            model.addAttribute("error","Clothing category already exists");
             response.setStatus(404); // Not Found
 
-            return "users/addForm";
+            return "users/addForm2";
 
 
         } else {
-            clothingg Repository.save(new Category(newName, newAgeRange, newQuantity));
+            clothingRepository.save(new Clothing(newType,newGender, newAgeRange, newQuantity));
 
             response.setStatus(201);
-            return "redirect:/showAll"; // I will make this redirect to the display page afterwards
+            return "redirect:/showAllClothes"; // I will make this redirect to the display page afterwards
         }
     }
-    @GetMapping("/addForm")
+    @GetMapping("/addForm2")
     public String addForm() {
-        return "users/addForm";
+        return "users/addForm2";
     }
 
 
-    @GetMapping("/showAll")
-    public String getCategories(Model model) {
-        List<Category> categories = categoryRepository.findAll(Sort.by(Sort.Direction.ASC, "id")); // Fetch categories from repository
-        model.addAttribute("categories", categories); // Add categories to model
-        return "users/showAll"; // Return the name of the Thymeleaf template
+    @GetMapping("/showAllClothes")
+    public String getClothing(Model model) {
+        List<Clothing> clothes= clothingRepository.findAll(Sort.by(Sort.Direction.ASC, "id")); // Fetch categories from repository
+        model.addAttribute("clothes", clothes); // Add categories to model
+        return "users/showAllClothes"; // Return the name of the Thymeleaf template
     }
 
 
@@ -83,31 +83,32 @@ public class ClothingController {
     //   return "users/showAll";
     // }
 
-    @PostMapping("/showAll")
-    public String getAllCategories(Model model) {
+    @PostMapping("/showAllClothes")
+    public String getAllClothes(Model model) {
         System.out.println("getting all items");
-        List<Category> categories = categoryRepository.findAll();
-        model.addAttribute("categories", categories);
-        return "showAll"; // Make sure this matches the template location
+        List<Clothing> clothes = clothingRepository.findAll();
+        model.addAttribute("clothes", clothes);
+        return "redirect:/showAllClothes"; // Make sure this matches the template location
     }
-    @GetMapping("/delete")
+   /* @GetMapping("/delete")
     public String deleteForm() {
         return "users/delete";
     }
     @PostMapping("/users/delete")
-    public String deleteItem(@RequestParam Map<String, String> oldCategory, Model model, HttpServletResponse response) {
+    public String deleteItem(@RequestParam Map<String, String> oldClothing, Model model, HttpServletResponse response) {
         System.out.println("delete category");
-        String oldName = oldCategory.get("name");
-        String oldAgeRange = oldCategory.get("ageRange");
-        int oldQuantity = Integer.parseInt(oldCategory.get("quantity"));
+        String oldType = oldClothing.get("type");
+        String oldGender = oldClothing.get("gender");
+        String oldAgeRange = oldClothing.get("ageRange");
+        int oldQuantity = Integer.parseInt(oldClothing.get("quantity"));
 
         // Find the category by the given parameters
-        List<Category> categoryList = categoryRepository.findByNameAndAgeRangeAndQuantity(oldName, oldAgeRange, oldQuantity);
+        List<Clothing> clothingList = clothingRepository.findByTypeAndGenderAndAgeRangeAndQuantity(oldType,oldGender, oldAgeRange, oldQuantity);
 
         // Check if the category exists
-        if (!categoryList.isEmpty()) {
-            Category itemToDelete = categoryList.get(0);
-            categoryRepository.deleteById(itemToDelete.getId()); // Assuming your Category entity has an "id" field
+        if (!clothingList.isEmpty()) {
+            Clothing itemToDelete = clothingList.get(0);
+            clothingRepository.deleteById(itemToDelete.getId()); // Assuming your Category entity has an "id" field
             // response.setStatus(204); // No content
             //return "redirect:/home.html"; // Return the path without the leading slash
             return "redirect:/showAll";
@@ -119,36 +120,37 @@ public class ClothingController {
 
         }
     }
-    @PostMapping("/update")
-    public String updateQuantity(@RequestParam("id") int categoryId, @RequestParam("quantity") int newQuantity) {
+    */
+    @PostMapping("/update2")
+    public String updateQuantity(@RequestParam("id") int clothingId, @RequestParam("quantity") int newQuantity) {
         // Find the category by ID
-        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
+        Optional<Clothing> optionalClothing = clothingRepository.findById(clothingId);
 
 
-        if (optionalCategory.isPresent()) {
-            Category category = optionalCategory.get();
-            category.setQuantity(newQuantity); // Update the quantity
-            categoryRepository.save(category); // Save the updated category object
+        if (optionalClothing.isPresent()) {
+            Clothing clothing = optionalClothing.get();
+            clothing.setQuantity(newQuantity); // Update the quantity
+            clothingRepository.save(clothing); // Save the updated category object
         }
 
 
         // Redirect back to the showAll page
-        return "redirect:/showAll";
+        return "redirect:/showAllClothes";
     }
-    @PostMapping("/remove")
-    public String deleteItem(@RequestParam("id") int categoryId) {
+    @PostMapping("/remove2")
+    public String deleteClothingItem(@RequestParam("id") int clothingId) {
         // Find the category by ID
-        Optional<Category> optionalCategory = categoryRepository.findById(categoryId);
+        Optional<Clothing> optionalClothing = clothingRepository.findById(clothingId);
 
 
-        if (optionalCategory.isPresent()) {
-            Category category = optionalCategory.get();
-            categoryRepository.deleteById(category.getId());
+        if (optionalClothing.isPresent()) {
+            Clothing clothing = optionalClothing.get();
+            clothingRepository.deleteById(clothing.getId());
         }
 
 
         // Redirect back to the showAll page
-        return "redirect:/showAll";
+        return "redirect:/showAllClothes";
     }
 }
 

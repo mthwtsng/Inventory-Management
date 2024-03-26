@@ -8,22 +8,22 @@
     <link rel="stylesheet" href="./stylesheets/showAll.css">
 </head>
 <body>
-    <h1 class="main-header">
-        <img src="stylesheets/logo.jpg" alt="logo" style="padding-right: 20px; width: 160px; ">
-        Toy Inventory
-    </h1>
-    <nav class="nav-style">
-        <section class="nav-left">
-            <a href="./protected">View inventory</a>
-            <a href="./addform">Add new category</a>
-            <a href="./deleteform">Delete category</a>
-        </section>
-        <section class="nav-right">
-            <button onclick="logout()" class="logout-btn">Logout</button>
-        </section>
-    </nav>
+<h1 class="main-header">
+    <img src="stylesheets/logo.jpg" alt="logo" style="padding-right: 20px; width: 160px; ">
+    Toy Inventory
+</h1>
+<nav class="nav-style">
+    <section class="nav-left">
+        <a href="./protected">View inventory</a>
+        <a href="./addform">Add new category</a>
+        <a href="./deleteform">Delete category</a>
+    </section>
+    <section class="nav-right">
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </section>
+</nav>
 
-    <button class="addbutton" onclick="redirectToAddForm()">Add new category to toy chart</button>
+<button class="addbutton" onclick="redirectToAddForm()">Add new category to clothing inventory</button>
 <main class="container-fluid">
 
     <!-- Filter dropdown -->
@@ -43,30 +43,31 @@
     <table class="table mt-3">
         <thead>
         <tr>
-            <th>Name of Category</th>
+            <th>Clothing type</th>
+            <th>Gender</th>
             <th>Age Range</th>
             <th>Quantity</th>
         </tr>
         </thead>
-        <tbody id="categoryTableBody">
-        <tr th:each="category : ${categories}" class="category">
+        <tbody id="clothingTableBody">
+        <tr th:each="clothing : ${clothes}" class="clothing">
+
             <td>
-                <span th:text="${category.name}"></span>
-                <form action="/remove" method="post" style="display: inline;">
-                    <input type="hidden" name="id" th:value="${category.id}" />
+                <span th:text="${clothing.type}"></span>
+                <form action="/remove2" method="post" style="display: inline;">
+                    <input type="hidden" name="id" th:value="${clothing.id}" />
                     <button type="submit">Remove</button>
                 </form>
             </td>
-
-            <td th:text="${category.ageRange}"></td>
+            <td th:text="${clothing.gender}"></td>
+            <td th:text="${clothing.ageRange}"></td>
             <td>
-                <form action="/update" method="post">
-                    <input type="hidden" name="id" th:value="${category.id}" />
-                    <input type="number" name="quantity" class="form-control" th:value="${category.quantity}" />
+                <form action="/update2" method="post" style="display: inline;">
+                    <input type="hidden" name="id" th:value="${clothing.id}" />
+                    <input type="number" name="quantity" class="form-control" th:value="${clothing.quantity}" />
                     <button type="submit">Update</button>
                 </form>
             </td>
-
 
         </tr>
         </tbody>
@@ -75,7 +76,7 @@
 
 <script>
     function redirectToAddForm() {
-        window.location.href = "/addForm";
+        window.location.href = "/addForm2";
     }
 
     function applyFilter() {
@@ -87,13 +88,13 @@
             }
         });
 
-        var categories = document.getElementsByClassName("category");
-        for (var i = 0; i < categories.length; i++) {
-            var categoryAgeRange = categories[i].getElementsByTagName("td")[1].innerText;
-            if (selectedFilters.length === 0 || selectedFilters.includes(categoryAgeRange)) {
-                categories[i].style.display = "table-row";
+        var clothes = document.getElementsByClassName("clothing");
+        for (var i = 0; i < clothes.length; i++) {
+            var clothingAgeRange = clothes[i].getElementsByTagName("td")[1].innerText;
+            if (selectedFilters.length === 0 || selectedFilters.includes(clothingAgeRange)) {
+                clothes[i].style.display = "table-row";
             } else {
-                categories[i].style.display = "none";
+                clothes[i].style.display = "none";
             }
         }
     }
