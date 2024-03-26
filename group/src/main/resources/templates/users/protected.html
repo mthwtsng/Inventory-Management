@@ -7,8 +7,9 @@
     <title>Document</title>
    
     <link rel="stylesheet" href="./stylesheets/protected.css">
-   
     <link rel="stylesheet" href="./stylesheets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -19,40 +20,26 @@
 
     <nav class="nav-style">
         <section class="nav-left">
-            <a href="#viewinventory">View </a>
-         <!---   <a href="#add">Add</a>-->
-            <button class="addbutton" onclick="redirectToAddForm()">Add new category</button>
-            <button class="viewbutton" onclick="redirectToShowAll()">view inventory</button>
-
-            <a href="#delete">Delete</a>
+            <a href="./protected">View inventory</a>
+            <a href="./addform">Add new category</a>
+            <a href="./deleteform">Delete category</a>
         </section>
 
         <section class="nav-right">
             <button onclick="logout()" class="logout-btn">Logout</button>
         </section>
     </nav>
-    <div class="header">
-        <h1>View Inventory</h1>
-    </div>
-    <div class="search-container">
-        <form id="search-form" action="/search" method="get">
-            <input type="text" placeholder="Search..." name="q">
-            <button type="button" onclick="search()">Search</button>
-           
-            <div class="dropdown">
-                <button onclick="toggleFilters()" class="dropbtn">Filters</button>
-                <div class="filter-options" id="filter-options">
-                    
-                    <label><input type="checkbox" name="filter1"> Filter 1</label>
-                    <label><input type="checkbox" name="filter2"> Filter 2</label>
-                
-                    <button onclick="saveFilters()">Save and Search</button>
-                </div>
-            </div>
-        </form>
-    </div>
    
-   
+    <section class="centered">
+        <h1 class="viewinventoryh1">View Inventory</h1>
+        <p class="view-text">Please choose which type of inventory list you would like to view: </p>
+        <button class="choose-category" onclick="redirectToShowAll()">
+            Toys
+        </button>
+        <button class="choose-category">
+            Clothing 
+        </button>
+   </section>
 
     <script>
         function toggleFilters() {
@@ -99,8 +86,9 @@
             window.location.href="/addForm";
         }
         function redirectToShowAll(){
-            window.location.href="/showAll";
+            window.location.href="./showall";
         }
+
     </script>
 </body>
 </html>

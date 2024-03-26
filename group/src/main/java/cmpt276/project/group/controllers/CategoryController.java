@@ -9,7 +9,7 @@ import java.util.Optional;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -66,16 +66,6 @@ public class CategoryController {
         return "users/showAll"; // Return the name of the Thymeleaf template
     }
 
-
-   /* @GetMapping("/showAll")
-    @ResponseBody // This annotation tells Spring MVC to serialize the return value directly to the response body
-    public ResponseEntity<List<Category>> getCategories() {
-        List<Category> categories = categoryRepository.findAll(Sort.by(Sort.Direction.ASC, "id")); // Fetch categories from repository
-
-        // Return the list of categories with a 200 OK status
-        return ResponseEntity.ok().body(categories);
-    }
-    */
 
     // @GetMapping("/showAll")
     // public String showAll() {
@@ -149,5 +139,14 @@ public class CategoryController {
         // Redirect back to the showAll page
         return "redirect:/showAll";
     }
+
+
+
+    @GetMapping("/categoryData")
+    @ResponseBody 
+    public List<Category> getCategoryData() {
+        return categoryRepository.findAll();
+    }
+
 }
 

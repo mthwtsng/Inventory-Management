@@ -6,22 +6,25 @@
     <title>Toy Inventory Chart</title>
     <link rel="stylesheet" href="./stylesheets/style.css">
     <link rel="stylesheet" href="./stylesheets/showAll.css">
-
 </head>
 <body>
-<main class="container-fluid">
     <h1 class="main-header">
         <img src="stylesheets/logo.jpg" alt="logo" style="padding-right: 20px; width: 160px; ">
         Toy Inventory
     </h1>
     <nav class="nav-style">
-
-
+        <section class="nav-left">
+            <a href="./protected">View inventory</a>
+            <a href="./addform">Add new category</a>
+            <a href="./deleteform">Delete category</a>
+        </section>
         <section class="nav-right">
             <button onclick="logout()" class="logout-btn">Logout</button>
         </section>
     </nav>
+
     <button class="addbutton" onclick="redirectToAddForm()">Add new category to toy chart</button>
+<main class="container-fluid">
 
     <!-- Filter dropdown -->
     <div class="dropdown" id="ageRangeDropdown">
