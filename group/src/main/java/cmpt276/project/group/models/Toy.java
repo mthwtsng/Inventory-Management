@@ -1,9 +1,10 @@
 package cmpt276.project.group.models;
 
 import jakarta.persistence.*;
+
 @Entity
-@Table(name = "categories")
-public class Category {
+@Table(name = "toys")
+public class Toy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -14,10 +15,10 @@ public class Category {
 
     // Constructors, getters, setters
 
-    public Category() {
+    public Toy() {
     }
 
-    public Category(String name, String ageRange, int quantity) {
+    public Toy(String name, String ageRange, int quantity) {
         this.name = name;
         this.ageRange = ageRange;
         this.quantity = quantity;
@@ -27,18 +28,21 @@ public class Category {
         return name;
     }
     public void setName(String name){
-
-        this.name=name;
+        this.name = name;
     }
-    public String getAgeRange(){return ageRange;}
-    public void setColour(String ageRange) {
+
+    public String getAgeRange(){
+        return ageRange;
+    }
+    public void setAgeRange(String ageRange) {
         this.ageRange = ageRange;
     }
+
     public int getQuantity(){
         return quantity;
     }
     public void setQuantity(int quantity){
-        this.quantity=quantity;
+        this.quantity = quantity;
     }
 
     public int getId() {
@@ -49,6 +53,3 @@ public class Category {
         this.id = id;
     }
 }
-
-
-
