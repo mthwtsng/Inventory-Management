@@ -1,6 +1,6 @@
 package cmpt276.project.group.controllers;
 
-import cmpt276.project.group.models.Category;
+import cmpt276.project.group.models.Toy;
 import cmpt276.project.group.models.Clothing;
 import cmpt276.project.group.models.ClothingRepository;
 
@@ -30,7 +30,7 @@ public class ClothingController {
         // Constructor code
     }
 
-    @PostMapping("/users/addForm2")
+    @PostMapping("/users/clothingAddForm")
     public String addClothingCategory(@RequestParam Map<String, String> newClothingCategory, Model model, HttpServletResponse response) {
         System.out.println("Add clothing category");
         String newType = newClothingCategory.get("type");
@@ -45,7 +45,7 @@ public class ClothingController {
             model.addAttribute("error","Clothing category already exists");
             response.setStatus(404); // Not Found
 
-            return "users/addForm2";
+            return "users/clothingAddForm";
 
 
         } else {
@@ -55,9 +55,9 @@ public class ClothingController {
             return "redirect:/showAllClothes"; // I will make this redirect to the display page afterwards
         }
     }
-    @GetMapping("/addForm2")
+    @GetMapping("/clothingAddForm")
     public String addForm() {
-        return "users/addForm2";
+        return "users/clothingAddForm";
     }
 
 
