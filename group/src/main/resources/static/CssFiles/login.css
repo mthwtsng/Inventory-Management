@@ -1,0 +1,54 @@
+/* Overall body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url(/img/login.jpeg);
+    background-size: 100%;
+}
+
+/* Container and login area styling */
+.container-fluid {
+    
+}
+
+h1 {
+    color: #333;
+}
+
+/* Form input fields styling */
+.form-control-lg {
+    border-radius: 20px;
+}
+
+/* Sign in button styling */
+.btn-primary {
+    background-color: #92d293c6;
+    border: none;
+    border-radius: 20px;
+}
+
+/* Social media buttons styling */
+.btn-primary .fa-facebook-f {
+    margin-right: 10px;
+    
+}
+
+.btn-primary .fa-google {
+    margin-right: 10px;
+    
+
+}
+
+/* Customizes the color of social buttons */
+a.btn[type="button"] {
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+
+
+/* Error message styling */
+.error-message p {
+    margin-top: 20px;
+}
