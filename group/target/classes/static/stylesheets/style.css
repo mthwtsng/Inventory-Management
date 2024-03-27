@@ -172,18 +172,17 @@ footer {
 
 .canvas-container {
     display: flex;
-    justify-content: space-between; 
+    justify-content: center; /* Center the charts horizontally */
+    height: 100vh; /* Set height to viewport height */
 }
 
 .chart-container {
-    flex: 1; 
-    display: flex;
-    justify-content: center; 
-    margin: 0 20px;
+    flex: 1; /* Let both charts take up equal space */
+    max-width: 50%; /* Limit each chart to half of the container width */
 }
+
 .chart {
-    flex: 1; 
-    margin: 0 250px;
-    height: 400px; 
-    width: auto 
+    max-width: 100%; /* Ensure chart width doesn't exceed container width */
+    max-height: 400px; /* Set a maximum height for the charts */
 }
+
