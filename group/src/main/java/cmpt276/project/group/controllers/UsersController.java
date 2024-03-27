@@ -149,18 +149,18 @@ public class UsersController {
 }
     
     @PostMapping("/changename")
-    public String changename(@RequestParam Map<String,String> formData, Model model, HttpServletRequest request, HttpSession session) {
+    public String changeusername(@RequestParam Map<String,String> formData, Model model, HttpServletRequest request, HttpSession session) {
         //get the current user
         Users user = (Users)session.getAttribute("session_user");
-
+    
         //get new name from form 
-        String newname = formData.get("newname");
-
+        String newusername = formData.get("newusername");
+    
         //save new data 
-        user.setName(newname);
+        user.setUsername(newusername);
         usersRepository.save(user);
-        model.addAttribute("message", "Your name has successfully been changed");
-
+        model.addAttribute("message", "Your username has successfully been changed");
+    
         return "users/protected";
     }
 
