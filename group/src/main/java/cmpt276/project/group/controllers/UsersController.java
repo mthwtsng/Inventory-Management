@@ -147,5 +147,45 @@ public class UsersController {
    // response.setStatus(HttpServletResponse.SC_CREATED);
     return "users/protected";
 }
+    
+    @PostMapping("/changename")
+    public String changename(@RequestParam Map<String,String> formData, Model model, HttpServletRequest request, HttpSession session) {
+        //get the current user
+        Users user = (Users)session.getAttribute("session_user");
 
+        //get new name from form 
+        String newname = formData.get("newname");
+
+        //save new data 
+        user.setName(newname);
+        usersRepository.save(user);
+        model.addAttribute("message", "Your name has successfully been changed");
+
+        return "users/protected";
+    }
+
+    @PostMapping("/changepass")
+    public String postMethodName(@RequestParam Map<String,String> formData, Model model, HttpServletRequest request, HttpSession session) {
+        //get the current user
+        Users user = (Users)session.getAttribute("session_user");
+
+        //get old pass
+        String oldpass = user.getPassword(); 
+
+        //get form data
+        String oldpassform = formData.get("oldpass");
+        String newpassform = formData.get("newpass");
+        
+        //check if old pass that user inputs is the same as the current one
+        if(oldpass.equals(oldpassform)){
+            //change to the new pass
+            user.setPassword(newpassform);
+            usersRepository.save(user);
+            model.addAttribute("message", "Your password has successfully been changed");
+        } else {
+            //the passwords dont match 
+            model.addAttribute("message", "Your old password does not match");
+        }
+        return "users/protected";
+    }  
 }
