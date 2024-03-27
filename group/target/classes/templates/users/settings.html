@@ -33,11 +33,11 @@
 
     <section id="main-options">
         <h1 class="head-settings">
-            User Settings
+            User Settings 
         </h1>
     
         <section id="settings-options">
-            <button class="name-button" onclick="showChangeName()">Change name</button><br>
+            <button class="name-button" onclick="showChangeName()">Change username</button><br>
             <button class="password-button" onclick="showChangePassword()">Change password</button>
         </section>
     </section>
@@ -47,15 +47,15 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-4">
-                    <h1 class="text-center mt-5 mb-4">Change name</h1>
+                    <h1 class="text-center mt-5 mb-4">Change username</h1>
                     <form action="/changename" method="post">
         
                         <div class="mb-3">
-                            <input type="text" id="newname" name="newname" class="form-control form-control-lg"
-                                   placeholder="New Name" required>
+                            <input type="text" id="newusername" name="newusername" class="form-control form-control-lg"
+                                   placeholder="New username" required>
                         </div>
                         <div class="d-grid gap-2">
-                            <input class="btn btn-primary" type="submit" value="Change to new name"></input>
+                            <input class="btn btn-primary" type="submit" value="Change to new username"></input>
                         </div>
                     </form>
                     <div th:if="${error}" class="error-message">
