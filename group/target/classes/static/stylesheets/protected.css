@@ -1,7 +1,10 @@
 .search-container {
     margin-top: 20px;
 }
-
+body {
+    background-image: url(/img/inventory4.webp) ;
+    background-size: 100%;
+}
 .search-container input[type=text] {
     padding: 10px;
     width: 300px;

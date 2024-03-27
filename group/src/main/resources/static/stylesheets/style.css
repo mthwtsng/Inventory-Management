@@ -27,6 +27,7 @@
     padding: 10px 20px;
     border-radius: 5px;
     background-color: #ff9b94;
+    background-color: #ff9b94;
 }
 
 .nav-style a:hover {
@@ -49,6 +50,13 @@
 .nav-right p {
     display: inline;
     margin: 10px 20px 10px 0; 
+}
+
+.nav-left a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-right: 10px;
 }
 
 .nav-left a {

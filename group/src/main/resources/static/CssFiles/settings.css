@@ -1,0 +1,24 @@
+
+body {
+    background-image: url(/img/settings2.jpg) ;
+    background-size: 100%;
+}
+
+.name-button, .password-button {
+    background-color: #F4736E; 
+    border: none; 
+    color: white; 
+    padding: 15px 32px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px;
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border-radius: 12px; 
+    transition-duration: 0.4s; 
+}
+
+.name-button:hover, .password-button:hover {
+    background-color: #6B2470; 
+}
