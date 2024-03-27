@@ -27,7 +27,6 @@
     padding: 10px 20px;
     border-radius: 5px;
     background-color: #ff9b94;
-    background-color: #ff9b94;
 }
 
 .nav-style a:hover {
@@ -50,13 +49,6 @@
 .nav-right p {
     display: inline;
     margin: 10px 20px 10px 0; 
-}
-
-.nav-left a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    margin-right: 10px;
 }
 
 .nav-left a {
@@ -180,17 +172,24 @@ footer {
 
 .canvas-container {
     display: flex;
-    justify-content: center; /* Center the charts horizontally */
-    height: 100vh; /* Set height to viewport height */
+    justify-content: center; 
+    height: 100vh; 
 }
 
 .chart-container {
-    flex: 1; /* Let both charts take up equal space */
-    max-width: 50%; /* Limit each chart to half of the container width */
+    flex: 1;
+    max-width: 50%; 
 }
 
 .chart {
-    max-width: 100%; /* Ensure chart width doesn't exceed container width */
-    max-height: 400px; /* Set a maximum height for the charts */
+    max-width: 100%;
+    max-height: 400px;
+
 }
 
+.chart-title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
