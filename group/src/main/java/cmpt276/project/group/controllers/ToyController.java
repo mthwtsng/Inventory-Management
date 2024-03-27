@@ -146,9 +146,9 @@ public class ToyController {
 
 
 
-    @GetMapping("/categoryData")
+    @GetMapping("/toyData")
     @ResponseBody 
-    public List<Toy> getCategoryData() {
+    public List<Toy> getToyData() {
         return toyRepository.findAll();
     }
 
