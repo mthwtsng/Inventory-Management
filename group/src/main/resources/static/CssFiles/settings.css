@@ -1,5 +1,11 @@
+
+body {
+    background-image: url(/img/settings2.jpg) ;
+    background-size: 100%;
+}
+
 .name-button, .password-button {
-    background-color: #4CAF50; 
+    background-color: #F4736E; 
     border: none; 
     color: white; 
     padding: 15px 32px; 
@@ -14,5 +20,5 @@
 }
 
 .name-button:hover, .password-button:hover {
-    background-color: #45a049; 
+    background-color: #6B2470; 
 }
