@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('/categoryData') // Fetch data from the endpoint
+    fetch('/toyData')
         .then(response => response.json())
-        .then(categories => {
-            const categoryNames = categories.map(category => category.name);
-            const categoryQuantities = categories.map(category => category.quantity);
+        .then(toys => {
+            const toyNames = toys.map(toy => toy.name);
+            const toyQuantities = toys.map(toy => toy.quantity);
 
-            var ctx = document.getElementById('categoryChart').getContext('2d');
-            var categoryChart = new Chart(ctx, {
+            var ctx = document.getElementById('toyChart').getContext('2d');
+            var toyChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: categoryNames,
+                    labels: toyNames,
                     datasets: [{
-                        data: categoryQuantities,
+                        data: toyQuantities,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.6)',
                             'rgba(54, 162, 235, 0.6)',
@@ -33,20 +33,16 @@ document.addEventListener('DOMContentLoaded', function () {
                         display: true,
                         text: 'Toy and Clothing Inventory by Quantity'
                     },
-                    responsive: false, // Prevents resizing of chart
-                    maintainAspectRatio: false, // Doesn't maintain aspect ratio
-                    width: 400, // Set width
-                    height: 400 // Set height
                 }
             });
         })
         .catch(error => {
-            console.error('Error fetching category data:', error);
+            console.error('Error fetching toy data:', error);
         });
 });
 
 function loadClothingChart() {
-    fetch('/clothingData') // Fetch data from the endpoint
+    fetch('/clothingData') 
         .then(response => response.json())
         .then(clothings => {
             const clothingType = clothings.map(clothing => clothing.type); // Change 'category' to 'clothing'
@@ -80,19 +76,11 @@ function loadClothingChart() {
                         display: true,
                         text: 'Toy and Clothing Inventory by Quantity'
                     },
-                    responsive: false, // Prevents resizing of chart
-                    maintainAspectRatio: false, // Doesn't maintain aspect ratio
-                    width: 100, // Set width
-                    height: 100 // Set height
                 }
             });
-
-            // Set the canvas size directly within Chart.js options
-            clothingChart.canvas.parentNode.style.width = '100px';
-            clothingChart.canvas.parentNode.style.height = '100px';
         })
         .catch(error => {
-            console.error('Error fetching clothing data:', error); // Change 'category' to 'clothing'
+            console.error('Error fetching clothing data:', error); 
         });
 }
 
