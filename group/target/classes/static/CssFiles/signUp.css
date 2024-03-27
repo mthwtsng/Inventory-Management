@@ -1,0 +1,13 @@
+/* signup.css */
+body {
+    background-image: url(/img/signup.jpeg) ;
+    background-size: 100%;
+}
+
+
+.btn-primary {
+    background-color: #4800ffbb;
+    border-color: #4800ffbb;
+}
+
+
