@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function loadClothingChart() {
-    fetch('/clothingData') // Fetch data from the endpoint
+    fetch('/clothingData') 
         .then(response => response.json())
         .then(clothings => {
             const clothingType = clothings.map(clothing => clothing.type); // Change 'category' to 'clothing'
