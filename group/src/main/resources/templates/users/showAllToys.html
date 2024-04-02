@@ -30,16 +30,18 @@
     <button class="addbutton" onclick="redirectToToyAddForm()">Add new category to toy chart</button>
 <main class="container-fluid">
 
-    <!-- Filter dropdown -->
+
     <div class="dropdown" id="ageRangeDropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="ageRangeDropdownButton">
             Select Age Ranges
         </button>
         <div class="dropdown-content" id="ageRangeDropdownContent">
-            <label><input type="checkbox" value="0-3"> 0-3 years</label>
-            <label><input type="checkbox" value="5-8"> 5-8 years</label>
-            <label><input type="checkbox" value="10-12"> 10-12 years</label>
-            <!-- Add more options as needed -->
+            <label><input type="checkbox" value="0-12"> 0-12 months</label>
+            <label><input type="checkbox" value="1-3"> 1-3 years</label>
+            <label><input type="checkbox" value="3-5"> 3-5 years</label>
+            <label><input type="checkbox" value="6-12"> 6-12 years</label>
+            <label><input type="checkbox" value="13"> 13+ years</label>
+         
             <button class="btn btn-primary" onclick="applyFilter()">Apply Filter</button>
         </div>
     </div>
@@ -58,7 +60,7 @@
                     <span th:text="${toy.name}"></span>
                     <form action="/remove" method="post" style="display: inline;">
                         <input type="hidden" name="id" th:value="${toy.id}" />
-                        <button type="submit">Remove</button>
+                        <button type="submit" class="remove-button">Remove</button>
                     </form>
                 </td>
 

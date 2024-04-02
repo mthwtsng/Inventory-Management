@@ -8,6 +8,7 @@
 .deletebutton {
     margin-top: 40px;
     margin-bottom: 10px;
+    
 }
 .dropdown {
     position: relative;
@@ -72,6 +73,20 @@
     cursor: pointer;
     font-size: 16px;
 }
+
+.toy td button {
+    display: block;
+    margin-left: 400px;
+    margin-top: -20px;
+}
+
+.clothing td button {
+    display: block;
+    margin-left: 400px;
+    margin-top: -20px;
+}
+
+
 .nav-right {
     display: flex;
     align-items: center;
@@ -86,3 +101,4 @@
     cursor: pointer;
     font-size: 16px;
 }
+

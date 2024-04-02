@@ -31,16 +31,25 @@
 <button class="addbutton" onclick="redirectToClothingAddForm()">Add new category to clothing inventory</button>
 <main class="container-fluid">
 
-    <!-- Filter dropdown -->
-    <div class="dropdown" id="ageRangeDropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="ageRangeDropdownButton">
-            Select Age Ranges
+   
+    <div class="dropdown" id="filterDropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="filterDropdownButton">
+            Select Filters
         </button>
-        <div class="dropdown-content" id="ageRangeDropdownContent">
-            <label><input type="checkbox" value="0-3"> 0-3 years</label>
-            <label><input type="checkbox" value="5-8"> 5-8 years</label>
-            <label><input type="checkbox" value="10-12"> 10-12 years</label>
-            <!-- Add more options as needed -->
+        <div class="dropdown-content" id="filterDropdownContent">
+            <div class="filter-section">
+                <h4>Age Range:</h4>
+                <label><input type="checkbox" value="0-12"> 0-12 months</label>
+                <label><input type="checkbox" value="1-3"> 1-3 years</label>
+                <label><input type="checkbox" value="3-5"> 3-5 years</label>
+                <label><input type="checkbox" value="6-12"> 6-12 years</label>
+                <label><input type="checkbox" value="13"> 13+ years</label>
+            </div>
+            <div class="filter-section">
+                <h4>Gender:</h4>
+                <label><input type="checkbox" value="boys"> Boys</label>
+                <label><input type="checkbox" value="girls"> Girls</label>
+            </div>
             <button class="btn btn-primary" onclick="applyFilter()">Apply Filter</button>
         </div>
     </div>
