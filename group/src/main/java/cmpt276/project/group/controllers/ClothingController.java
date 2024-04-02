@@ -1,6 +1,6 @@
 package cmpt276.project.group.controllers;
 
-import cmpt276.project.group.models.Toy;
+import cmpt276.project.group.models.Users;
 import cmpt276.project.group.models.Clothing;
 import cmpt276.project.group.models.ClothingRepository;
 
@@ -9,8 +9,10 @@ import java.util.Map;
 import java.util.Optional;
 
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+
 import org.springframework.data.domain.Sort;
-import org.springframework.http.ResponseEntity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,14 +57,25 @@ public class ClothingController {
             return "redirect:/showAllClothes"; // I will make this redirect to the display page afterwards
         }
     }
+
     @GetMapping("/clothingAddForm")
-    public String addForm() {
+    public String addForm(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("session_user");
+        if (user == null) {
+            return "redirect:/login";
+        }
         return "users/clothingAddForm";
     }
 
 
     @GetMapping("/showAllClothes")
-    public String getClothing(Model model) {
+    public String getClothing(Model model , HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("session_user");
+        if (user == null) {
+            return "redirect:/login";
+        }
         List<Clothing> clothes= clothingRepository.findAll(Sort.by(Sort.Direction.ASC, "id")); // Fetch categories from repository
         model.addAttribute("clothes", clothes); // Add categories to model
         return "users/showAllClothes"; // Return the name of the Thymeleaf template

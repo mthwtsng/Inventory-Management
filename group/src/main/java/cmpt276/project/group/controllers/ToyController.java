@@ -2,12 +2,16 @@ package cmpt276.project.group.controllers;
 
 import cmpt276.project.group.models.Toy;
 import cmpt276.project.group.models.ToyRepository;
+import cmpt276.project.group.models.Users;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+
 import org.springframework.data.domain.Sort;
 
 
@@ -19,7 +23,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cmpt276.project.group.models.ToyRepository;
 
 @Controller
 public class ToyController {
@@ -55,14 +58,25 @@ public class ToyController {
             return "redirect:/showAllToys"; // I will make this redirect to the display page afterwards
         }
     }
+
     @GetMapping("/toyAddForm")
-    public String toyAddForm() {
+    public String toyAddForm(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("session_user");
+        if (user == null) {
+            return "redirect:/login";
+        }
         return "users/toyAddForm";
     }
 
 
     @GetMapping("/showAllToys")
-    public String getCategories(Model model) {
+    public String getCategories(Model model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("session_user");
+        if (user == null) {
+            return "redirect:/login";
+        }
         List<Toy> toys = toyRepository.findAll(Sort.by(Sort.Direction.ASC, "id")); // Fetch categories from repository
         model.addAttribute("toys", toys); // Add categories to model
         return "users/showAllToys"; // Return the name of the Thymeleaf template

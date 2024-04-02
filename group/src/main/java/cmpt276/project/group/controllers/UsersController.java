@@ -118,7 +118,13 @@ public class UsersController {
     }
 
     @GetMapping("/protected")
-    public String loggedin() {
+    public String loggedin(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Users user = (Users) session.getAttribute("session_user");
+        if (user == null) {
+            // Redirect to login page if user is not logged in
+            return "redirect:/login";
+        }
         return "users/protected"; 
     }
 
