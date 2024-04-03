@@ -5,6 +5,7 @@ import cmpt276.project.group.models.Users;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -63,6 +64,10 @@ public class UsersController {
     @GetMapping("/partners")
     public String partners(){
         return "users/partners";
+    }
+    @GetMapping("/stories")
+    public String stories(){
+        return "users/stories";
     }
     @PostMapping("/login")
     public String login(@RequestParam Map<String,String> formData, Model model, HttpServletRequest request, HttpSession session){
@@ -133,9 +138,15 @@ public class UsersController {
         String name =newUser.get("name");
         String username = newUser.get("username");
         String password = newUser.get("password");
+        String empCode = newUser.get("empCode");
 
         if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
             return "users/signup"; 
+        }
+        if (!"childhelp2020".equals(empCode)) {
+            model.addAttribute("error", "Invalid empCode");
+           return "users/signup";
+
         }
 
         if (usersRepository.existsByUsername(username)) {

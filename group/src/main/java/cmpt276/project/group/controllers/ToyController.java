@@ -83,10 +83,7 @@ public class ToyController {
     }
 
 
-    // @GetMapping("/showAllToys")
-    // public String showAllToys() {
-    //   return "users/showAllToys";
-    // }
+
 
     @PostMapping("/showAllToys")
     public String getAllToys(Model model) {
