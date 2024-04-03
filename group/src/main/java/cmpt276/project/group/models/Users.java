@@ -11,16 +11,18 @@ public class Users {
     private String name;
     private String username;
     private String password;
+    private String empCode;
 
     public Users(){
         
     }
    
 
-    public Users(String name,String username, String password) {
+    public Users(String name,String username, String password,String empCode) {
         this.name = name;
         this.username = username;
         this.password = password;
+        this.empCode = empCode;
      
     }
 public String getName(){
@@ -45,7 +47,14 @@ public void setName(String name){
         this.password = password;
     }
 
- 
+  public String getEmpCode() {
+        return empCode;
+    }
+
+   public void setEmpCode(String empCode) {
+        this.empCode = empCode;
+    }
+
     public int getUid() {
         return uid;
     }

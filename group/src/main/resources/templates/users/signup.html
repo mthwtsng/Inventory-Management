@@ -29,20 +29,15 @@
 					<input type="password" id="password" name="password" class="form-control form-control-lg" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="password" required>
 
 				</div>
-				<!-- Submit button -->
+				<div class="mb-3">
+					<input type="empCode" id="empCode" name="empCode" class="form-control form-control-lg"  placeholder="employee code" required>
+				</div>
 
 				<div class="d-grid gap-2">
 					<input class="btn btn-primary" type="submit" value="Sign Up"></input>
 				</div>
 
-				<div class="text-center mt-5 mb-4">
-					OR
-				</div>
 
-				<div class="d-grid gap-2">
-					<a class="btn btn-primary" type="button" style="background-color: #2c2ff6d5" role="button"><i class="fa fa-facebook-f"></i> Continue with Facebook</a>
-					<a class="btn btn-primary" type="button" style="background-color: #821eca" role="button"><i class="fa fa-google"></i> Continue with Google</a></a>
-				</div>
 
 			</form><div th:if="${error}" class="error-message">
 			<p th:text="${error}" style="color: red; font-size: x-large; font-weight: bold; font-family: 'Plus Jakarta Sans', sans-serif;"></p>

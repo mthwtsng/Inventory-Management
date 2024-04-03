@@ -82,20 +82,7 @@ public class ClothingController {
     }
 
 
-   /* @GetMapping("/showAll")
-    @ResponseBody // This annotation tells Spring MVC to serialize the return value directly to the response body
-    public ResponseEntity<List<Category>> getCategories() {
-        List<Category> categories = categoryRepository.findAll(Sort.by(Sort.Direction.ASC, "id")); // Fetch categories from repository
 
-        // Return the list of categories with a 200 OK status
-        return ResponseEntity.ok().body(categories);
-    }
-    */
-
-    // @GetMapping("/showAll")
-    // public String showAll() {
-    //   return "users/showAll";
-    // }
 
     @PostMapping("/showAllClothes")
     public String getAllClothes(Model model) {
@@ -104,37 +91,7 @@ public class ClothingController {
         model.addAttribute("clothes", clothes);
         return "redirect:/showAllClothes"; // Make sure this matches the template location
     }
-   /* @GetMapping("/delete")
-    public String deleteForm() {
-        return "users/delete";
-    }
-    @PostMapping("/users/delete")
-    public String deleteItem(@RequestParam Map<String, String> oldClothing, Model model, HttpServletResponse response) {
-        System.out.println("delete category");
-        String oldType = oldClothing.get("type");
-        String oldGender = oldClothing.get("gender");
-        String oldAgeRange = oldClothing.get("ageRange");
-        int oldQuantity = Integer.parseInt(oldClothing.get("quantity"));
 
-        // Find the category by the given parameters
-        List<Clothing> clothingList = clothingRepository.findByTypeAndGenderAndAgeRangeAndQuantity(oldType,oldGender, oldAgeRange, oldQuantity);
-
-        // Check if the category exists
-        if (!clothingList.isEmpty()) {
-            Clothing itemToDelete = clothingList.get(0);
-            clothingRepository.deleteById(itemToDelete.getId()); // Assuming your Category entity has an "id" field
-            // response.setStatus(204); // No content
-            //return "redirect:/home.html"; // Return the path without the leading slash
-            return "redirect:/showAll";
-        } else {
-            model.addAttribute("error","Category not found");
-            response.setStatus(404); // Not Found
-
-            return "users/delete";
-
-        }
-    }
-    */
     @PostMapping("/update2")
     public String updateQuantity(@RequestParam("id") int clothingId, @RequestParam("quantity") int newQuantity) {
         // Find the category by ID
