@@ -108,8 +108,11 @@ public class UsersController {
     }
     
     @GetMapping("/signup")
-    public String signup() {
-        return "users/signup"; 
+        public String getsignUp(HttpServletRequest request, HttpSession session){
+            Users user = (Users) session.getAttribute("session_user");
+
+
+        return "users/signup";
     }
 
     @GetMapping("/addform")
@@ -134,7 +137,8 @@ public class UsersController {
     }
 
     @PostMapping("/signup")
-    public String signup(@RequestParam Map<String, String> newUser, Model model, HttpServletResponse response) {
+    public String signup(@RequestParam Map<String, String> newUser, Model model, HttpServletRequest request, HttpServletResponse response,HttpSession session) {
+        Users user = (Users) session.getAttribute("session_user");
         String name =newUser.get("name");
         String username = newUser.get("username");
         String password = newUser.get("password");
@@ -155,14 +159,15 @@ public class UsersController {
             return "users/signup"; 
         }
 
-    Users user = new Users();
+    user = new Users();
         user.setName(name);
     user.setUsername(username);
     user.setPassword(password);
     usersRepository.save(user);
-
+        request.getSession().setAttribute("session_user", user);
+        model.addAttribute("user", user); // Add the single user object to the model
+        return "users/protected";
    // response.setStatus(HttpServletResponse.SC_CREATED);
-    return "users/protected";
 }
     
     @PostMapping("/changename")
