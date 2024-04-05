@@ -61,6 +61,11 @@ public class UsersController {
     public String about(){
         return "users/about";
     }
+
+    @GetMapping("/mymap")
+    public String mymap(){
+        return "users/mymap";
+    }
     @GetMapping("/partners")
     public String partners(){
         return "users/partners";
