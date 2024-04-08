@@ -29,3 +29,8 @@ body {
 .name-button:hover, .password-button:hover {
     background-color: #6B2470; 
 }
+
+.centered-text{
+    text-align: center;
+}
+

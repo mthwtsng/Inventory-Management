@@ -24,3 +24,8 @@ function showpass(){
 function logout() {
     window.location.href = "/logout";
 }
+
+function redirectToChangePass(){
+    window.location.href="/changepass";
+}
+

@@ -209,10 +209,12 @@ public class UsersController {
             user.setPassword(newpassform);
             usersRepository.save(user);
             model.addAttribute("message", "Your password has successfully been changed");
+            return "users/protected";
         } else {
             //the passwords dont match 
-            model.addAttribute("message", "Your old password does not match");
+            model.addAttribute("error", "Your old password does not match");
+            return "users/cantChangeSettings";
         }
-        return "users/protected";
-    }  
+    }
+
 }
