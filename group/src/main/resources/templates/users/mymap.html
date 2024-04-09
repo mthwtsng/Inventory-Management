@@ -18,7 +18,7 @@
   <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
   <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
   <style>
-    #map { width: 800px; height: 600px; }
+    #map { width: 700px; height: 600px; }
   </style>
 </head>
 <body>
@@ -58,15 +58,40 @@
 </section>
 
 
+<div class="story-1">
+  <div id="map"></div>
 
+  <div class="text">
+    <h1>Visit us at our location </h1><br>
+    <p>Our address is:6730 N Scottsdale Rd STE 150, Scottsdale, AZ 85253, United States</p>
 
+  </div>
 
-<div class="page-header">
-  <h2>Our location and Contact info</h2>
-  <p>Visit us at our headquarters location </p>
 </div>
-<p>Our address is:6730 N Scottsdale Rd STE 150, Scottsdale, AZ 85253, United States </p>
-<div id="map"></div>
+
+
+
+
+<div class="contact_info">
+  <div class="text">
+    <h1>Contact Us</h1><br>
+    <p>
+    <div class="contact"> Childhelp National Child Abuse Hotline:</div>
+      1-800-422-4453
+      (Speak to a Counselor)
+      Live chat with professional counselors:
+      www.childhelphotline.org
+      Donations (and help with donations):
+      gifts@childhelp.org
+      Media / PR:
+      Meghan Krein | Director of Communications & PR
+      mkrein@childhelp.org
+      Call Us
+      (480) 922-8212
+      .</p>
+  </div>
+</div>
+
 
 <script type="text/javascript">
   /**
@@ -109,6 +134,9 @@
   // Now use the map as required...
   window.onload = function () {
     addMarkersToMap(map);
+  }
+  function redirectTo123() {
+    window.location.href = "https://www.childhelp.org/contact/";
   }
 </script>
 </body>
