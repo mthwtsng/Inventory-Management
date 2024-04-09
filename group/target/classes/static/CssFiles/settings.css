@@ -26,11 +26,12 @@ body {
     transition-duration: 0.4s; 
 }
 
-.name-button:hover, .password-button:hover {
-    background-color: #6B2470; 
+.center-message {
+    justify-content: center;
+    text-align: center;
 }
 
-.centered-text{
-    text-align: center;
+.name-button:hover, .password-button:hover {
+    background-color: #6B2470; 
 }
 
