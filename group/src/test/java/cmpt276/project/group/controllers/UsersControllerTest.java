@@ -111,11 +111,15 @@ public class UsersControllerTest {
                         .param("name","bob")
                         .param("username", "bob234")
                         .param("password", "Bob123!")
+                        .param("empCode","childhelp2020")
                         .session((MockHttpSession) httpSession))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("users/protected"));
     }
 
 
-}
+
+
+};
+
 
