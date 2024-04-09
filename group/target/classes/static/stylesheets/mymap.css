@@ -85,10 +85,231 @@ html {
     height: 100%;
 }
 
+
+
+.story-1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Plus Jakarta Sans";
+}
+
+.map {
+    max-width: 70%;
+    max-height:100%;
+    height: 300px;
+    width: 250px;
+    float:left;
+}
+
+.text {
+    font-size: 20px;
+    padding-left: 20px;
+    padding-bottom: 150px;
+    color:black;
+    font-family: "Plus Jakarta Sans";
+}
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 12px;
+    color: white;
+    background-color: #ff5861;
+    text-align: center;
+    font-size: x-large;
+    cursor: pointer;
+    width: 160px;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
+
+
+.page-header{
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    right:0;
+    font-family: "Plus Jakarta Sans";
+}
+
+
+
+
+
 .h2 {
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    right:0;
+    font-family: "Plus Jakarta Sans";
+}
+.p{
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    right:0;
+    justify-content: right;
+    font-family: "Plus Jakarta Sans";
+
+}
+
+.contact_info {
     padding-top: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: "Plus Jakarta Sans";
+}
+
+
+
+
+.story-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Plus Jakarta Sans";
+}
+
+
+.story_2 {
+    max-width: 100%;
+    max-height:100%;
+    height: 300px;
+    width: 300px;
+    float:left;
+}
+
+.text2 {
+    font-size: 20px;
+    padding-left: 20px;
+    padding-bottom: 150px;
+    color:black;
+    font-family: "Plus Jakarta Sans";
+}
+
+
+.what-is-accepted {
+    text-align: center;
+
+}
+.what-is-accepted .h3{
+    color: #ff5861;
+    font-weight: bold;
+    font-size: x-large;
+}
+.what-is-accepted .bold-paragraph {
+    font-weight: bold;
+    color: #494242;
+    font-size: x-large;
+}
+
+
+
+.display-about {
+    padding: 50px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Plus Jakarta Sans";
+    font-size: 19px;
+    line-height: 30px;
+    font-weight: 500;
+    line-height: 26px;
+    color: black;
+    max-width: 100%;
+    overflow: visible;
+    background: white;
+}
+
+.container {
+    padding: 0 16px;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 1;
+    height: 100vh;
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: auto;
+    margin-top: auto;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.column h2{
+    font-size: x-large;
+    font-weight:bold;
+
+}
+.column h3{
+    font-size: x-large;
+    font-weight:bold;
+
+}
+.column h4{
+    font-size:x-large;
+    font-weight:bold;
+}
+.column img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+}
+
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 12px;
+    color: white;
+    background-color: #ff5861;
+    text-align: center;
+    font-size: x-large;
+    cursor: pointer;
+    width: 160px;
+    border-radius: 10px;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
 }
