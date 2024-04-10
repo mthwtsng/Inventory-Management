@@ -31,7 +31,8 @@
 <button class="addbutton" onclick="redirectToClothingAddForm()">Add new category to clothing inventory</button>
 <main class="container-fluid">
 
-   
+
+
     <div class="dropdown" id="filterDropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="filterDropdownButton">
             Select Filters
@@ -43,14 +44,16 @@
                 <label><input type="checkbox" value="1-3"> 1-3 years</label>
                 <label><input type="checkbox" value="3-5"> 3-5 years</label>
                 <label><input type="checkbox" value="6-12"> 6-12 years</label>
-                <label><input type="checkbox" value="13"> 13+ years</label>
+                <label><input type="checkbox" value="13+"> 13+ years</label>
+                <button class="btn btn-primary" onclick="applyFilter2()">Apply Filter</button>
+
             </div>
-            <div class="filter-section">
+            <div class="filter-section2">
                 <h4>Gender:</h4>
                 <label><input type="checkbox" value="boys"> Boys</label>
                 <label><input type="checkbox" value="girls"> Girls</label>
             </div>
-            <button class="btn btn-primary" onclick="applyFilter()">Apply Filter</button>
+            <button class="btn btn-primary" onclick="applyFilter2()">Apply Filter</button>
         </div>
     </div>
 
@@ -93,41 +96,70 @@
         window.location.href = "/clothingAddForm";
     }
 
-function applyFilter() {
-    var ageRangeCheckboxes = document.querySelectorAll('#filterDropdownContent input[name="ageRange"]:checked');
-    var genderCheckboxes = document.querySelectorAll('#filterDropdownContent input[name="gender"]:checked');
-    var selectedAgeRanges = [];
-    var selectedGenders = [];
+    function applyFilter() {
+        //var ageRangeCheckboxes = document.querySelectorAll('#filterDropdownContent input[type="checkbox"][value^="0-"]');
+        var genderCheckboxes = document.querySelectorAll('#filterDropdownContent input[type="checkbox"][value="boys"], #filterDropdownContent input[type="checkbox"][value="girls"]');
+        var selectedAgeRanges = [];
+        var selectedGenders = [];
+        ageRangeCheckboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                selectedAgeRanges.push(checkbox.value);
+            }
+        });
+        genderCheckboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                selectedGenders.push(checkbox.value);
+            }
+        });
 
-    ageRangeCheckboxes.forEach(function(checkbox) {
-        selectedAgeRanges.push(checkbox.value);
-    });
+        var clothes = document.getElementsByClassName("clothing");
+        for (var i = 0; i < clothes.length; i++) {
+            var clothingAgeRange = clothes[i].getElementsByTagName("td")[2].innerText;
+            var clothingGenders = clothes[i].getElementsByTagName("td")[1].innerText;
 
-    genderCheckboxes.forEach(function(checkbox) {
-        selectedGenders.push(checkbox.value);
-    });
-
-    var clothes = document.getElementsByClassName("clothing");
-    for (var i = 0; i < clothes.length; i++) {
-        var clothingAgeRange = clothes[i].getElementsByTagName("td")[2].innerText;
-        var clothingGender = clothes[i].getElementsByTagName("td")[1].innerText;
-        var showClothing = true;
-
-        if (selectedAgeRanges.length > 0 && !selectedAgeRanges.includes(clothingAgeRange)) {
-            showClothing = false;
-        }
-
-        if (selectedGenders.length > 0 && !selectedGenders.includes(clothingGender)) {
-            showClothing = false;
-        }
-
-        if (showClothing) {
-            clothes[i].style.display = "table-row";
-        } else {
-            clothes[i].style.display = "none";
+            if ((selectedAgeRanges.length === 0 || selectedAgeRanges.includes(clothingAgeRange)) &&
+                (selectedGenders.length === 0 || selectedGenders.includes(clothingGenders))) {
+                clothes[i].style.display = "table-row";
+            } else {
+                clothes[i].style.display = "none";
+            }
         }
     }
+function applyFilter2() {
+
+        var ageRangeCheckboxes = document.querySelectorAll('#filterDropdownContent input[type="checkbox"][value="0-12"],#filterDropdownContent input[type="checkbox"][value="1-3"],#filterDropdownContent input[type="checkbox"][value="3-5"],#filterDropdownContent input[type="checkbox"][value="6-12"],#filterDropdownContent input[type="checkbox"][value="13+"]');
+    var genderCheckboxes = document.querySelectorAll('#filterDropdownContent input[type="checkbox"][value="boys"], #filterDropdownContent input[type="checkbox"][value="girls"]');
+    var selectedGenders = [];
+
+    var selectedAgeRanges = [];
+        ageRangeCheckboxes.forEach(function(checkbox) {
+            if (checkbox.checked) {
+                selectedAgeRanges.push(checkbox.value);
+            }
+        });
+
+    genderCheckboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+            selectedGenders.push(checkbox.value);
+        }
+    });
+
+        var clothes = document.getElementsByClassName("clothing");
+        for (var i = 0; i < clothes.length; i++) {
+            var clothingAgeRange = clothes[i].getElementsByTagName("td")[2].innerText;
+           var clothingGenders = clothes[i].getElementsByTagName("td")[1].innerText;
+
+            if ((selectedAgeRanges.length === 0 || selectedAgeRanges.includes(clothingAgeRange)) &&
+                (selectedGenders.length === 0 || selectedGenders.includes(clothingGenders))) {
+
+            //){
+                clothes[i].style.display = "table-row";
+            } else {
+                clothes[i].style.display = "none";
+            }
+        }
 }
+
 
     
     function logout() {
