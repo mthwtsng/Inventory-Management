@@ -1,15 +1,10 @@
 
-
-   
     .head-settings {
       
         color: #5a575f; 
     }
     
-body {
-    background-image: url(/img/settings4.webp) ;
-    background-size: 100%;
-}
+
 
 .name-button, .password-button {
     background-color: #F4736E; 
