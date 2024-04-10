@@ -12,38 +12,38 @@
 </head>
 <body>
 
-    <h1 class="main-header">
-        <img src="stylesheets/logo.jpg" alt="logo" style="padding-right: 20px; width: 160px; ">
-        Toy and Clothing Inventory
-    </h1>
+<h1 class="main-header">
+    <img src="stylesheets/logo.jpg" alt="logo" style="padding-right: 20px; width: 160px; ">
+    Toy and Clothing Inventory
+</h1>
 
-    <nav class="nav-style">
-        <section class="nav-left">
-            <a href="./protected">View inventory</a>
-        </section>
+<nav class="nav-style">
+    <section class="nav-left">
+        <a href="./protected">View inventory</a>
+    </section>
 
-        <section class="nav-right">
-            <button type="button" class="button" onclick="redirectToSettings()">
-                <span class="button-text">Settings</span>
-                <span class="button-icon">
+    <section class="nav-right">
+        <button type="button" class="button" onclick="redirectToSettings()">
+            <span class="button-text">Settings</span>
+            <span class="button-icon">
                         <ion-icon name="settings-sharp"></ion-icon>
                     </span>
-            </button>
+        </button>
 
-            <button onclick="logout()" class="logout-btn">Logout</button>
-        </section>
-    </nav>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </section>
+</nav>
 
-    <div class="center-message">
-        <h1> Error! The old password provided does not match. <br> Please try again. </h1>
-    </div>
+<div class="center-message">
+    <h1> Error! The old password provided does not match. <br> Please try again. </h1>
+</div>
 
-    <script>
-        function redirectToSettings(){
-            window.location.href="/settings";
-        }
-    </script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
+    function redirectToSettings(){
+        window.location.href="/settings";
+    }
+</script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
