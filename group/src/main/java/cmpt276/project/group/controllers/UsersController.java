@@ -130,6 +130,16 @@ public class UsersController {
         return "users/settings";
     }
 
+    @GetMapping("/errorname")
+    public String errorname(){
+        return "users/cantChangeName";
+    }
+
+    @GetMapping("/errorpass")
+    public String errorpass(){
+        return "users/cantChangeSettings";
+    }
+
     @GetMapping("/protected")
     public String loggedin(HttpServletRequest request) {
         HttpSession session = request.getSession();
