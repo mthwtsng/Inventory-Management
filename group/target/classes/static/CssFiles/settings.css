@@ -1,15 +1,10 @@
 
-
-   
     .head-settings {
       
         color: #5a575f; 
     }
     
-body {
-    background-image: url(/img/settings4.webp) ;
-    background-size: 100%;
-}
+
 
 .name-button, .password-button {
     background-color: #F4736E; 
@@ -26,13 +21,6 @@ body {
     transition-duration: 0.4s; 
 }
 
-.center-message {
-    justify-content: center;
-    text-align: center;
-}
-
-
 .name-button:hover, .password-button:hover {
     background-color: #6B2470; 
 }
-

@@ -78,11 +78,13 @@ footer {
     transform: translate(-50%, -50%);
 }
 
+
 .center-headings{
     margin-top: 60px;
     justify-content: center;
     text-align: center;
 }
+
 
 .choose-category{
     font-size: x-large;

@@ -182,13 +182,17 @@ public class UsersController {
     
         //get new name from form 
         String newusername = formData.get("newusername");
-    
-        //save new data 
-        user.setUsername(newusername);
-        usersRepository.save(user);
-        model.addAttribute("message", "Your username has successfully been changed");
-    
-        return "users/protected";
+
+        if (usersRepository.existsByUsername(newusername)) {
+            return "users/cantChangeName";
+        } else {
+            //save new data
+            user.setUsername(newusername);
+            usersRepository.save(user);
+            model.addAttribute("message", "Your username has successfully been changed");
+
+            return "users/protected";
+        }
     }
 
     @PostMapping("/changepass")
