@@ -41,7 +41,7 @@ public class Clothing {
     }
 
     public String getAgeRange(){return ageRange;}
-    public void setColour(String ageRange) {
+    public void setAgeRange(String ageRange) {
         this.ageRange = ageRange;
     }
     public int getQuantity(){
