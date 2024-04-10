@@ -130,12 +130,12 @@ public class UsersController {
         return "users/settings";
     }
 
-    @GetMapping("/errorname")
+    @GetMapping("/cantChangeName")
     public String errorname(){
         return "users/cantChangeName";
     }
 
-    @GetMapping("/errorpass")
+    @GetMapping("/cantChangeSettings")
     public String errorpass(){
         return "users/cantChangeSettings";
     }
