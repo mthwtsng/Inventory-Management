@@ -93,25 +93,42 @@
         window.location.href = "/clothingAddForm";
     }
 
-    function applyFilter() {
-        var checkboxes = document.querySelectorAll('#ageRangeDropdownContent input[type="checkbox"]');
-        var selectedFilters = [];
-        checkboxes.forEach(function(checkbox) {
-            if (checkbox.checked) {
-                selectedFilters.push(checkbox.value);
-            }
-        });
+function applyFilter() {
+    var ageRangeCheckboxes = document.querySelectorAll('#filterDropdownContent input[name="ageRange"]:checked');
+    var genderCheckboxes = document.querySelectorAll('#filterDropdownContent input[name="gender"]:checked');
+    var selectedAgeRanges = [];
+    var selectedGenders = [];
 
-        var clothes = document.getElementsByClassName("clothing");
-        for (var i = 0; i < clothes.length; i++) {
-            var clothingAgeRange = clothes[i].getElementsByTagName("td")[1].innerText;
-            if (selectedFilters.length === 0 || selectedFilters.includes(clothingAgeRange)) {
-                clothes[i].style.display = "table-row";
-            } else {
-                clothes[i].style.display = "none";
-            }
+    ageRangeCheckboxes.forEach(function(checkbox) {
+        selectedAgeRanges.push(checkbox.value);
+    });
+
+    genderCheckboxes.forEach(function(checkbox) {
+        selectedGenders.push(checkbox.value);
+    });
+
+    var clothes = document.getElementsByClassName("clothing");
+    for (var i = 0; i < clothes.length; i++) {
+        var clothingAgeRange = clothes[i].getElementsByTagName("td")[2].innerText;
+        var clothingGender = clothes[i].getElementsByTagName("td")[1].innerText;
+        var showClothing = true;
+
+        if (selectedAgeRanges.length > 0 && !selectedAgeRanges.includes(clothingAgeRange)) {
+            showClothing = false;
+        }
+
+        if (selectedGenders.length > 0 && !selectedGenders.includes(clothingGender)) {
+            showClothing = false;
+        }
+
+        if (showClothing) {
+            clothes[i].style.display = "table-row";
+        } else {
+            clothes[i].style.display = "none";
         }
     }
+}
+
     
     function logout() {
 

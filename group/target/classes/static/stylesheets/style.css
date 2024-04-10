@@ -9,7 +9,7 @@
     background-color: #6B2470;
     color: white;
     padding: 20px;
-    text-align: center; 
+    text-align: center;
     margin-bottom: 0;
 }
 
@@ -48,7 +48,7 @@
 
 .nav-right p {
     display: inline;
-    margin: 10px 20px 10px 0; 
+    margin: 10px 20px 10px 0;
 }
 
 .nav-left a {
@@ -60,13 +60,13 @@
 
 
 footer {
-    background-color: #6B2470; 
+    background-color: #6B2470;
     color: white;
     text-align: center;
     padding: 10px;
     position: fixed;
     bottom: 0;
-    width: 100%; 
+    width: 100%;
 }
 
 .centered{
@@ -181,13 +181,13 @@ footer {
 
 .canvas-container {
     display: flex;
-    justify-content: center; 
-    height: 100vh; 
+    justify-content: center;
+    height: 100vh;
 }
 
 .chart-container {
     flex: 1;
-    max-width: 50%; 
+    max-width: 50%;
 }
 
 .chart {

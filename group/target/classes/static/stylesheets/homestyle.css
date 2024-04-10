@@ -1,0 +1,127 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-header {
+    background-color: #6B2470;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.nav-style {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F4736E;
+    padding: 15px;
+}
+
+.nav-style a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #ff9b94;
+}
+
+.nav-style a:hover {
+    background-color: #FFD3D0;
+    color: black;
+}
+
+.nav-style span {
+    text-decoration: none;
+    padding: 10px 7px;
+    border-radius: 5px;
+}
+
+.nav-right p,
+.nav-right a {
+    margin-left: 10px;
+    color:white;
+}
+
+.nav-right p {
+    display: inline;
+    margin: 10px 20px 10px 0;
+}
+
+.nav-left a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+}
+
+footer {
+    background-color: #6B2470;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.center-headings {
+    margin-top: 40px;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.chart-container {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.chart {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+.chart-title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.button {
+    display: inline-flex;
+    padding: 0;
+    margin-right: 10px;
+    background-color: #F4736E;
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    color: white;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #FFD3D0;
+    color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .main-header h1 {
+        font-size: 20px;
+    }
+}

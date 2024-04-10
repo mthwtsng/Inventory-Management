@@ -5,16 +5,11 @@
     box-sizing: border-box; 
 }
 
-main {
-    padding: 20px;
-    margin-bottom: 100px; /* Adjust this value as needed */
-}
-
 .main-header {
     background-color: #6B2470;
     color: white;
     padding: 20px;
-    text-align: center; 
+    text-align: center;
     margin-bottom: 0;
 }
 
@@ -53,7 +48,7 @@ main {
 
 .nav-right p {
     display: inline;
-    margin: 10px 20px 10px 0; 
+    margin: 10px 20px 10px 0;
 }
 
 .nav-left a {
@@ -62,6 +57,7 @@ main {
     padding: 10px 15px;
     margin-right: 10px;
 }
+
 
 footer {
     background-color: #6B2470;
@@ -73,45 +69,57 @@ footer {
     width: 100%;
 }
 
-.center-headings {
-    margin-top: 40px;
+.centered{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+.center-headings{
+    margin-top: 60px;
     justify-content: center;
     text-align: center;
-    padding: 20px;
-    background-color: #f8f8f8;
 }
 
-.canvas-container {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f8f8f8;
+
+.choose-category{
+    font-size: x-large;
+    width: 300px;
+    height: 100px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: #f78988;
+    transition: 0.3s;
+    border: none;
 }
 
-.chart-container {
-    flex: 1;
-    max-width: 50%;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    background-color: white;
+.choose-category:hover{
+    background-color: #934d98;
+    color: white;
+    cursor: pointer;
 }
 
-.chart {
-    max-width: 100%;
-    max-height: 400px;
-}
-
-.chart-title {
+.viewinventoryh1{
     text-align: center;
-    margin-top: 20px;
-    font-size: 1.5em;
-    color: #333;
+    font-size: xx-large;
+    margin-bottom: 15px;
 }
 
-.button {
+.view-text{
+    text-align: center;
+    font-size: larger;
+    margin:20px;
+}
+
+.button{
     display: inline-flex;
     padding: 0;
-    margin-right: 10px;
+    margin-right: 25px;
     background-color: #F4736E;
     border: none;
     border-radius: 5px;
@@ -120,13 +128,77 @@ footer {
     cursor: pointer;
 }
 
-.button:hover {
+.button:hover{
     background-color: #FFD3D0;
     color: black;
 }
 
-@media screen and (max-width: 768px) {
-    .main-header h1 {
-        font-size: 20px;
-    }
+.button-text,
+.button-icon{
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    height: 100%;
+}
+
+.button-icon{
+    font-size: 1.5em;
+}
+
+.head-settings{
+    text-align: center;
+    margin-top: 70px;
+}
+
+#settings-options{
+    text-align: center;
+    margin: 25px;
+}
+
+.name-button,
+.password-button{
+    margin: 15px;
+    border: none;
+    width:200px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.name-button:hover,
+.password-button:hover{
+    background-color:rgb(212, 211, 211);
+    transition: 0.3s;
+}
+
+#change-name-page{
+    display: none;
+}
+
+#change-pass-page{
+    display: none;
+
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.chart-container {
+    flex: 1;
+    max-width: 50%;
+}
+
+.chart {
+    max-width: 100%;
+    max-height: 400px;
+
+}
+
+.chart-title {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #333;
 }
