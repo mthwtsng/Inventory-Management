@@ -69,8 +69,3 @@ Be honest, is the amount of work required in this proposal enough for five group
 Yes, there is enough work for all of us.  
 
 
-database:  psql -h dpg-cnjoa921hbls73dqtrt0-a.oregon-postgres.render.com -U group_project_db_user -d group_project_db
-
-password: DmtRqJ1aUB2ImyJAM3Umnn6KnNwBaQ1q
-
-
